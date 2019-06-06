@@ -11,13 +11,13 @@
         android:layout_height="wrap_content"
         android:text="Add product"/>
 
-    <android.support.design.widget.TextInputEditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/add_product"
         android:text="product"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <android.support.design.widget.TextInputEditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/purchsed_date"
         android:hint="date of purchaed"
         android:layout_width="match_parent"

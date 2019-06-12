@@ -23,6 +23,11 @@ public class ShoppingList {
         this.id = id;
     }
 
+    public String getExpired() {
+        return dateExpired;
+    }
+
+
     @PrimaryKey(autoGenerate = true)
     public int id;
 
@@ -32,8 +37,12 @@ public class ShoppingList {
     @ColumnInfo(name = "purchased date")
     public String purchaed;
 
-    public ShoppingList(String product, String purchaed) {
+    @ColumnInfo(name = "expired date")
+    public String dateExpired;
+
+    public ShoppingList(String product, String purchaed, String dateExpired) {
         this.product = product;
         this.purchaed = purchaed;
+        this.dateExpired = dateExpired;
     }
 }

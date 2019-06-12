@@ -33,6 +33,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ListAdapter.ViewHolder viewHolder, int i) {
         viewHolder.product.setText(products.get(i).getProduct());
         viewHolder.date.setText(products.get(i).getDatePurchased());
+        viewHolder.dateExpired.setText(products.get(i).getExpired());
+
+
     }
 
     @Override
@@ -43,12 +46,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView product;
         public TextView date;
+        public TextView dateExpired;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             product = itemView.findViewById(R.id.product_list);
             date = itemView.findViewById(R.id.date_list);
+            dateExpired = itemView.findViewById(R.id.date_expired);
+
         }
     }
 }

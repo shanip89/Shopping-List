@@ -30,6 +30,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/expired_date"
+        android:hint="date of purchaed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <DatePicker
+        android:id="@+id/date_picker_expired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
     <Button
         android:id="@+id/save_product"

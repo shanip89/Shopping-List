@@ -21,6 +21,9 @@ public class CreateList extends AppCompatActivity {
     EditText datePurchaed;
     Button clickMe;
     DatePicker datePicker;
+    EditText dateExpired;
+    DatePicker datePickerEx;
+
 
 
 
@@ -33,6 +36,8 @@ public class CreateList extends AppCompatActivity {
         datePurchaed = (EditText) findViewById(R.id.purchsed_date);
         clickMe = (Button) findViewById(R.id.save_product);
         datePicker = (DatePicker) findViewById(R.id.date_picker);
+        dateExpired = (EditText) findViewById(R.id.expired_date);
+        datePickerEx = (DatePicker) findViewById(R.id.date_picker_expired);
 
 
 
@@ -48,7 +53,8 @@ public class CreateList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String getDate = "Selected Date: "+ datePicker.getDayOfMonth()+"/"+ (datePicker.getMonth() + 1)+"/"+datePicker.getYear();
-                ShoppingList shoppingList = new ShoppingList(product.getText().toString(), getDate);
+                String getExpired = "Selected Date: "+ datePickerEx.getDayOfMonth()+"/"+ (datePickerEx.getMonth() + 1)+"/"+datePickerEx.getYear();
+                ShoppingList shoppingList = new ShoppingList(product.getText().toString(), getDate, getExpired);
                db.listDao().insertAll(shoppingList);
                 startActivity(new Intent(CreateList.this, MainActivity.class));
             }

@@ -11,7 +11,7 @@ public class ShoppingList {
         return product;
     }
 
-    public int getDatePurchased(){
+    public String getDatePurchased(){
         return purchaed;
     }
 
@@ -30,9 +30,9 @@ public class ShoppingList {
     public String product;
 
     @ColumnInfo(name = "purchased date")
-    public int purchaed;
+    public String purchaed;
 
-    public ShoppingList(String product, int purchaed) {
+    public ShoppingList(String product, String purchaed) {
         this.product = product;
         this.purchaed = purchaed;
     }

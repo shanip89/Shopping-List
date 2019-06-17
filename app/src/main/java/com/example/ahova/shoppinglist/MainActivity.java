@@ -18,8 +18,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ListAdapter mAdapter;
+
 
 
     @Override
@@ -36,10 +37,13 @@ public class MainActivity extends AppCompatActivity {
 
         List<ShoppingList> products = db.listDao().getAllproducts();
 
-        recyclerView = findViewById(R.id.shopping_recyler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ListAdapter(products);
-        recyclerView.setAdapter(adapter);
+        RecyclerView recyclerView = findViewById(R.id.shopping_recyler);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        mAdapter = new ListAdapter(products, this);
+        recyclerView.setAdapter(mAdapter);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

@@ -13,6 +13,8 @@ import android.widget.EditText;
 
 import androidx.room.Room;
 
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 public class CreateList extends AppCompatActivity {
@@ -38,9 +40,6 @@ public class CreateList extends AppCompatActivity {
         datePicker = (DatePicker) findViewById(R.id.date_picker);
         dateExpired = (EditText) findViewById(R.id.expired_date);
         datePickerEx = (DatePicker) findViewById(R.id.date_picker_expired);
-
-
-
 
 
         final ListDataBase db = Room.databaseBuilder(getApplicationContext(), ListDataBase.class, "My products")

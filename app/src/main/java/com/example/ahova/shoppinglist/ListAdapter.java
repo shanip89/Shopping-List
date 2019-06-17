@@ -16,16 +16,21 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
 
     List<ShoppingList> products;
+    private LayoutInflater mLayoutInflater;
+    Context mContext;
 
-    public ListAdapter(List<ShoppingList> products) {
+    public ListAdapter(List<ShoppingList> products, Context context) {
         this.products = products;
+        this.mContext = context;
+        mLayoutInflater = (LayoutInflater)context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
 
     @NonNull
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_row, viewGroup, false);
+        View view = mLayoutInflater.inflate(R.layout.list_row, viewGroup, false);
         return new ViewHolder(view);
     }
 

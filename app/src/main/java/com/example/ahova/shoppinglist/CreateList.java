@@ -40,6 +40,17 @@ public class CreateList extends AppCompatActivity {
         datePicker = (DatePicker) findViewById(R.id.date_picker);
         dateExpired = (EditText) findViewById(R.id.expired_date);
         datePickerEx = (DatePicker) findViewById(R.id.date_picker_expired);
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DAY_OF_MONTH, 0);
+            Long minDate = calendar.getTime().getTime();
+            datePicker.setMinDate(minDate);
+            datePicker.setMaxDate(minDate);
+
+            Calendar calendar1 = Calendar.getInstance();
+            calendar1.add(Calendar.DAY_OF_MONTH, 1);
+            Long minDate1 = calendar1.getTime().getTime();
+            datePickerEx.setMinDate(minDate1);
+
 
 
         final ListDataBase db = Room.databaseBuilder(getApplicationContext(), ListDataBase.class, "My products")
@@ -51,7 +62,7 @@ public class CreateList extends AppCompatActivity {
         clickMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String getDate = "Selected Date: "+ datePicker.getDayOfMonth()+"/"+ (datePicker.getMonth() + 1)+"/"+datePicker.getYear();
+                String getDate = "Selected Date: " + datePicker.getDayOfMonth()+"/"+ (datePicker.getMonth() + 1)+"/"+datePicker.getYear();
                 String getExpired = "Selected Date: "+ datePickerEx.getDayOfMonth()+"/"+ (datePickerEx.getMonth() + 1)+"/"+datePickerEx.getYear();
                 ShoppingList shoppingList = new ShoppingList(product.getText().toString(), getDate, getExpired);
                db.listDao().insertAll(shoppingList);
